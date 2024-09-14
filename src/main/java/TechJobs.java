@@ -63,6 +63,8 @@ public class TechJobs {
 
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
+                } else if (JobData.findByColumnAndValue(searchField, searchTerm).isEmpty()) {
+                    System.out.println("No Results");
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
