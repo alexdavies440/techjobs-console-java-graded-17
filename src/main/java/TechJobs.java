@@ -63,7 +63,7 @@ public class TechJobs {
 
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
-                } else if (JobData.findByColumnAndValue(searchField, searchTerm).isEmpty()) {
+                } else if (JobData.findByColumnAndValue(searchField, searchTerm).isEmpty() || searchTerm.equals("")) {
                     System.out.println("No Results");
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
@@ -123,14 +123,17 @@ public class TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
         for (HashMap<String, String> job : someJobs) {
-            //System.out.println(job);
+
+            System.out.println();
             System.out.println("*****");
             for (Map.Entry<String, String> characteristic : job.entrySet()) {
                 System.out.println(characteristic.getKey() + ": " + characteristic.getValue());
             }
-            System.out.println("*****" + "\n");
+            System.out.println("*****");
+            //System.out.println();
         }
-        System.out.println("\n" + "PrintJobs is under construction...");
+
+        //System.out.println("\n" + "PrintJobs is under construction...");
 
     }
 }
