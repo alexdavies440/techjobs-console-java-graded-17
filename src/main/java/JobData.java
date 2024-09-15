@@ -97,7 +97,7 @@ public class JobData {
 
         for (HashMap<String, String> job: allJobs) {
             for (Map.Entry<String, String> row : job.entrySet()) {
-                if (row.getValue().contains(value) && !jobsByValue.contains(row)) {
+                if (row.getValue().contains(value) && !jobsByValue.contains(job)) {
                     jobsByValue.add(job);
                 }
             }
