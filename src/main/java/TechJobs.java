@@ -63,7 +63,9 @@ public class TechJobs {
 
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
-                } else if (JobData.findByColumnAndValue(searchField, searchTerm).isEmpty() || searchTerm.equals("")) {
+                } else if (JobData.findByColumnAndValue(searchField, searchTerm).isEmpty()
+                        //|| searchTerm.equals("")
+                ) {
                     System.out.println("No Results");
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
@@ -130,7 +132,7 @@ public class TechJobs {
                 System.out.println(characteristic.getKey() + ": " + characteristic.getValue());
             }
             System.out.println("*****");
-            //System.out.println();
+
         }
 
         //System.out.println("\n" + "PrintJobs is under construction...");
