@@ -63,10 +63,13 @@ public class TechJobs {
                 searchTerm = searchTerm.toLowerCase();
 
                 if (searchField.equals("all")) {
-                    printJobs(JobData.findByValue(searchTerm));
-                } else if (JobData.findByColumnAndValue(searchField, searchTerm).isEmpty()
-                        //|| searchTerm.equals("")
-                ) {
+                    if (JobData.findByValue(searchTerm).isEmpty()) {
+                        System.out.println("No Results");
+                    } else {
+                        printJobs(JobData.findByValue(searchTerm));
+                    }
+
+                } else if (JobData.findByColumnAndValue(searchField, searchTerm).isEmpty()) {
                     System.out.println("No Results");
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
