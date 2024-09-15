@@ -138,8 +138,5 @@ public class TechJobs {
             System.out.println("*****");
 
         }
-
-        //System.out.println("\n" + "PrintJobs is under construction...");
-
     }
 }
