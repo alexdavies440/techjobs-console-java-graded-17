@@ -5,6 +5,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -46,8 +47,10 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
+        ArrayList<HashMap<String, String>> allJobsCopy = new ArrayList<HashMap<String, String>>(allJobs);
+        //allJobsCopy.addAll(allJobs);
 
-        return allJobs;
+        return allJobsCopy;
     }
 
     /**
